@@ -7,10 +7,10 @@ const Hero = () => {
       <div className="container mx-auto px-6 py-24 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-black mb-6 animate-fade-up leading-tight text-gray-900">
-            Meet <span className="text-orange-500">dooza forms</span>
+            Meet <span className="text-orange-500">dooza social</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-700 font-semibold mb-10 animate-fade-up [animation-delay:100ms] opacity-0 [animation-fill-mode:forwards]">
-            The #1 Typeform alternative that converts 3x better
+            The #1 Hootsuite alternative that saves 70% on costs
           </p>
           <div className="animate-fade-up [animation-delay:200ms] opacity-0 [animation-fill-mode:forwards] flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
@@ -29,7 +29,7 @@ const Hero = () => {
                 navigate('/signup');
               }}
             >
-              START FREE TRIAL →
+              START MANAGING SOCIALS →
             </Button>
             <Button 
               variant="outline" 

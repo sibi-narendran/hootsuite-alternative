@@ -13,15 +13,15 @@ const Pricing = () => {
       period: "/month",
       description: "Everything you need to get started",
       features: [
-        "Unlimited forms, unlimited responses, unlimited questions per form",
-        "Add images; custom colors and fonts; logic builder; score & calculations; hidden fields; embed forms",
-        "Integrations: Google Sheets, Slack, Zapier; email notifications",
-        "Multiple endings per form; webhooks; collect signatures",
-        "Calendly, Cal.com, SavvyCal integrations",
-        "Workspaces/folders",
-        "Non-English language support",
-        "File uploads up to 10 MB per file",
-        "Basic analytics & drop-off rate"
+        "Connect up to 3 social media accounts",
+        "Schedule up to 30 posts per month",
+        "Basic analytics and engagement tracking",
+        "Content calendar with weekly view",
+        "AI-powered caption suggestions",
+        "Image and video uploads up to 100MB",
+        "Basic hashtag recommendations",
+        "Email support",
+        "Mobile app access"
       ],
       buttonText: "Start Free",
       highlighted: false
@@ -33,15 +33,15 @@ const Pricing = () => {
       description: "For professional use and teams",
       features: [
         "Everything in Free",
-        "Multiple language support; custom fonts",
-        "Redirect to a URL; add your brand logo; customize form metadata; remove Youform branding",
-        "Partial submissions; refill link",
-        "Custom domains",
-        "File uploads: unlimited (fair-use policy)",
-        "Invite team members",
-        "Collect payments (Stripe)",
-        "Google Tag Manager (for Meta/TikTok pixels, etc.)",
-        "Advanced analytics"
+        "Unlimited social media accounts",
+        "Unlimited scheduled posts",
+        "Advanced analytics and competitor tracking",
+        "Team collaboration with approval workflows",
+        "Custom branding and white-label options",
+        "Bulk content upload and scheduling",
+        "Advanced AI content generation",
+        "Priority customer support",
+        "Integration with CRM and marketing tools"
       ],
       buttonText: "Choose Pro",
       highlighted: true,
@@ -57,10 +57,10 @@ const Pricing = () => {
           {/* Header */}
           <div className="text-center mb-20">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Start Building Forms for Free
+              Start Managing Social Media for Free
             </h1>
             <p className="text-xl text-gray-600 mb-8">
-              Everything you need to create professional forms with AI
+              Everything you need to dominate social media with AI
             </p>
           </div>
 

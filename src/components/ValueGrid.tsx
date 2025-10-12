@@ -1,5 +1,5 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { Bot, Infinity, Link, Zap, Upload, Webhook } from "lucide-react";
+import { Bot, Infinity, Users, Calendar, BarChart3, Zap } from "lucide-react";
 
 const ValueGrid = () => {
   const { ref, isVisible } = useScrollAnimation(0.2);
@@ -7,33 +7,33 @@ const ValueGrid = () => {
   const features = [
     {
       icon: <Bot className="w-6 h-6" />,
-      title: "AI Builder",
-      description: "Generate a form from a prompt or URL"
+      title: "AI Content Creation",
+      description: "Generate engaging posts and captions with AI assistance"
     },
     {
       icon: <Infinity className="w-6 h-6" />,
-      title: "Unlimited Responses",
-      description: "No overages, no auto-upgrades"
+      title: "Unlimited Posts",
+      description: "No limits on scheduled posts or social accounts"
     },
     {
-      icon: <Link className="w-6 h-6" />,
-      title: "Native Integrations",
-      description: "Sheets, Notion, Airtable, Slack, Gmail, HubSpot, Trello, Asana, Drive, Pipedrive, Mailchimp"
+      icon: <Users className="w-6 h-6" />,
+      title: "Multi-Platform Publishing",
+      description: "Facebook, Instagram, Twitter, LinkedIn, TikTok, YouTube, Pinterest"
+    },
+    {
+      icon: <Calendar className="w-6 h-6" />,
+      title: "Smart Scheduling",
+      description: "Optimal posting times with advanced calendar management"
+    },
+    {
+      icon: <BarChart3 className="w-6 h-6" />,
+      title: "Advanced Analytics",
+      description: "Deep insights into engagement, reach, and ROI tracking"
     },
     {
       icon: <Zap className="w-6 h-6" />,
-      title: "Fast Embeds",
-      description: "Lightweight loader; sub-2s first question"
-    },
-    {
-      icon: <Upload className="w-6 h-6" />,
-      title: "Big Uploads",
-      description: "Up to 2 GB per file, direct-to-cloud"
-    },
-    {
-      icon: <Webhook className="w-6 h-6" />,
-      title: "Reliable Webhooks",
-      description: "Retries, idempotency keys, replay"
+      title: "Team Collaboration",
+      description: "Approval workflows, team roles, and content planning"
     }
   ];
 
@@ -42,10 +42,10 @@ const ValueGrid = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-            Why Businesses Choose dooza
+            Why Businesses Choose dooza social
           </h2>
           <p className="text-xl text-gray-700 font-semibold">
-            Everything you need to crush your conversion goals
+            Everything you need to dominate your social media presence
           </p>
         </div>
         

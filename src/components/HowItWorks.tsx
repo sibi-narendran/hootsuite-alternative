@@ -1,5 +1,5 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { Link, Rocket, Zap } from "lucide-react";
+import { Users, Calendar, BarChart3 } from "lucide-react";
 
 const HowItWorks = () => {
   const { ref, isVisible } = useScrollAnimation(0.2);
@@ -7,21 +7,21 @@ const HowItWorks = () => {
   const steps = [
     {
       number: "1",
-      icon: <Link className="w-6 h-6" />,
-      title: "Create with AI",
-      description: "Easily create forms by prompting our AI builder"
+      icon: <Users className="w-6 h-6" />,
+      title: "Connect Accounts",
+      description: "Link all your social media accounts in one dashboard"
     },
     {
       number: "2",
-      icon: <Rocket className="w-6 h-6" />,
-      title: "Publish",
-      description: "Get higher conversions with fast-loading forms"
+      icon: <Calendar className="w-6 h-6" />,
+      title: "Schedule & Publish",
+      description: "Plan your content calendar and post across all platforms"
     },
     {
       number: "3",
-      icon: <Zap className="w-6 h-6" />,
-      title: "Automate",
-      description: "Push results to automations with our integrations"
+      icon: <BarChart3 className="w-6 h-6" />,
+      title: "Analyze Performance",
+      description: "Track engagement metrics and optimize your social strategy"
     }
   ];
 
@@ -34,10 +34,10 @@ const HowItWorks = () => {
           }`}
         >
           <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-            Get Started in 3 Simple Steps
+            Manage All Your Socials in 3 Steps
           </h2>
           <p className="text-lg text-gray-700 font-semibold">
-            From zero to converting forms in under 5 minutes
+            From setup to posting across all platforms in under 5 minutes
           </p>
         </div>
         

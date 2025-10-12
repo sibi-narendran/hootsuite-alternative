@@ -50,7 +50,7 @@ const Header = () => {
               href="/" 
               className="text-2xl font-bold text-foreground hover:opacity-80 transition-opacity"
             >
-              dooza
+              dooza social
             </a>
           </div>
           

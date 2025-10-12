@@ -5,15 +5,15 @@ const SocialProofBar = () => {
 
   const testimonials = [
     {
-      quote: "Cut our form + Zapier spend by 70%",
+      quote: "Cut our social media management costs by 70%",
       source: "Interio Square"
     },
     {
-      quote: "Launch-day spikes without surprise bills",
+      quote: "Boosted engagement 3x across all platforms",
       source: "Suresh Timbers"
     },
     {
-      quote: "Imported in minutes, shipped same day",
+      quote: "Migrated from Hootsuite in minutes, saved thousands",
       source: "Adam Labs"
     }
   ];
@@ -24,7 +24,7 @@ const SocialProofBar = () => {
         {/* Social proof header */}
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-4">
-            Join Businesses Getting Better Results
+            Join Businesses Dominating Social Media
           </h2>
         </div>
         
@@ -62,15 +62,15 @@ const SocialProofBar = () => {
         >
           <p className="text-sm text-muted-foreground mb-4">Trusted by</p>
           <div className="flex flex-wrap justify-center gap-8 text-sm text-muted-foreground font-medium">
-            <span>Agencies</span>
+            <span>Marketing Agencies</span>
             <span>•</span>
-            <span>SaaS</span>
+            <span>E-commerce Brands</span>
             <span>•</span>
-            <span>Clinics</span>
+            <span>SaaS Companies</span>
             <span>•</span>
-            <span>Schools</span>
+            <span>Influencers</span>
             <span>•</span>
-            <span>Events</span>
+            <span>Small Businesses</span>
           </div>
         </div>
       </div>

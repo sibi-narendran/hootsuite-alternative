@@ -20,7 +20,7 @@ const FinalCTA = () => {
           }`}
           style={{ transitionDelay: '100ms' }}
         >
-          Don't Let Your Competitors Win
+          Don't Let Your Competitors Dominate Social
         </h2>
         
         <p 
@@ -29,7 +29,7 @@ const FinalCTA = () => {
           }`}
           style={{ transitionDelay: '150ms' }}
         >
-          Join businesses getting 3x better conversions with dooza
+          Join businesses saving 70% on social media management with dooza social
         </p>
         
         <div 
@@ -44,11 +44,11 @@ const FinalCTA = () => {
             className="bg-white text-orange-600 hover:bg-gray-50 px-10 py-4 text-xl font-black transition-all duration-300 hover:scale-105 shadow-2xl border-0 mb-4"
             onClick={() => navigate('/signup')}
           >
-            START FREE TRIAL NOW →
+            START MANAGING SOCIALS NOW →
           </Button>
           
           <p className="text-orange-100 text-sm">
-            ✅ Setup in 2 minutes • ✅ No credit card required • ✅ 30-day guarantee
+            ✅ Connect all platforms in 2 minutes • ✅ No credit card required • ✅ 30-day guarantee
           </p>
         </div>
       </div>

@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import SocialProofBar from "@/components/SocialProofBar";
 import HowItWorks from "@/components/HowItWorks";
 import IntegrationsSection from "@/components/IntegrationsSection";
-import TypeformMigration from "@/components/TypeformMigration";
+import HootsuiteMigration from "@/components/HootsuiteMigration";
 import ValueGrid from "@/components/ValueGrid";
 import FinalCTA from "@/components/FinalCTA";
 import { useEffect } from "react";
@@ -24,7 +24,7 @@ const Index = () => {
       
       <HowItWorks />
       
-      <TypeformMigration />
+      <HootsuiteMigration />
       
       <SocialProofBar />
       

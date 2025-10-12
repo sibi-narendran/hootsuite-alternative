@@ -70,15 +70,15 @@ const Signup = () => {
         <div className="w-full max-w-lg">
           <div className="bg-white border border-gray-200 rounded-2xl p-12 text-center shadow-2xl">
             <h1 className="text-4xl md:text-5xl font-black mb-4 text-gray-900">
-              <span className="text-orange-500">dooza forms</span>
+              <span className="text-orange-500">dooza social</span>
             </h1>
             
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Welcome!
+              Welcome to Social Media Management!
             </h2>
             
             <p className="text-lg text-gray-600 mb-10">
-              Check your email to get started
+              Check your email to connect your social accounts
             </p>
             
             <Button 
@@ -114,11 +114,11 @@ const Signup = () => {
           {/* Main content */}
           <div className="text-center mb-10">
             <h1 className="text-4xl md:text-5xl font-black mb-4 text-gray-900">
-              <span className="text-orange-500">dooza forms</span>
+              <span className="text-orange-500">dooza social</span>
             </h1>
             
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Start Free Trial
+              Start Managing Your Socials
             </h2>
             
             <p className="text-lg text-gray-600">
@@ -130,7 +130,7 @@ const Signup = () => {
             <div>
               <Input
                 type="email"
-                placeholder="Enter your work email"
+                placeholder="Enter your email to get started"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -150,7 +150,7 @@ const Signup = () => {
                   Setting up...
                 </div>
               ) : (
-                "Get Started"
+                "Start Free Trial"
               )}
             </Button>
           </form>

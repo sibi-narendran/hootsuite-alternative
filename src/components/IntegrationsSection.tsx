@@ -1,23 +1,23 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { SiShopify, SiSlack, SiStripe, SiMailchimp, SiWoocommerce, SiBigcommerce, SiMagento, SiPaypal, SiMeta, SiAmazon, SiDiscord } from "react-icons/si";
-import { FaHeadset, FaCreditCard, FaEnvelope, FaInbox, FaUsers } from "react-icons/fa";
+import { SiFacebook, SiInstagram, SiX, SiLinkedin, SiTiktok, SiYoutube, SiPinterest, SiSnapchat, SiTelegram, SiWhatsapp, SiDiscord, SiReddit } from "react-icons/si";
+import { FaVideo, FaImage, FaUsers, FaShare } from "react-icons/fa";
 
 const IntegrationsSection = () => {
   const { ref, isVisible } = useScrollAnimation(0.2);
 
   const integrations = [
-    { name: "Google Sheets", icon: <FaEnvelope className="w-5 h-5" />, color: "text-green-600" },
-    { name: "Notion", icon: <FaInbox className="w-5 h-5" />, color: "text-gray-700" },
-    { name: "Airtable", icon: <FaInbox className="w-5 h-5" />, color: "text-orange-600" },
-    { name: "Slack", icon: <SiSlack className="w-5 h-5" />, color: "text-purple-600" },
-    { name: "Gmail", icon: <FaEnvelope className="w-5 h-5" />, color: "text-red-600" },
-    { name: "HubSpot", icon: <FaEnvelope className="w-5 h-5" />, color: "text-orange-600" },
-    { name: "Trello", icon: <FaUsers className="w-5 h-5" />, color: "text-blue-600" },
-    { name: "Asana", icon: <FaUsers className="w-5 h-5" />, color: "text-red-600" },
-    { name: "Google Drive", icon: <FaInbox className="w-5 h-5" />, color: "text-blue-600" },
-    { name: "Pipedrive", icon: <FaHeadset className="w-5 h-5" />, color: "text-green-600" },
-    { name: "Mailchimp", icon: <SiMailchimp className="w-5 h-5" />, color: "text-yellow-600" },
-    { name: "API + Webhooks", icon: <FaHeadset className="w-5 h-5" />, color: "text-indigo-600" },
+    { name: "Facebook", icon: <SiFacebook className="w-5 h-5" />, color: "text-blue-600" },
+    { name: "Instagram", icon: <SiInstagram className="w-5 h-5" />, color: "text-pink-600" },
+    { name: "X (Twitter)", icon: <SiX className="w-5 h-5" />, color: "text-blue-400" },
+    { name: "LinkedIn", icon: <SiLinkedin className="w-5 h-5" />, color: "text-blue-700" },
+    { name: "TikTok", icon: <SiTiktok className="w-5 h-5" />, color: "text-black" },
+    { name: "YouTube", icon: <SiYoutube className="w-5 h-5" />, color: "text-red-600" },
+    { name: "Pinterest", icon: <SiPinterest className="w-5 h-5" />, color: "text-red-500" },
+    { name: "Snapchat", icon: <SiSnapchat className="w-5 h-5" />, color: "text-yellow-400" },
+    { name: "Telegram", icon: <SiTelegram className="w-5 h-5" />, color: "text-blue-500" },
+    { name: "WhatsApp", icon: <SiWhatsapp className="w-5 h-5" />, color: "text-green-500" },
+    { name: "Discord", icon: <SiDiscord className="w-5 h-5" />, color: "text-purple-600" },
+    { name: "Reddit", icon: <SiReddit className="w-5 h-5" />, color: "text-orange-600" },
   ];
 
   // Duplicate the array for seamless loop
@@ -31,7 +31,7 @@ const IntegrationsSection = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          Integrations
+          All Your Favorite Platforms
         </h2>
         
         <div 

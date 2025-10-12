@@ -75,7 +75,7 @@ const Admin = () => {
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", `dooza_signups_${new Date().toISOString().split('T')[0]}.csv`);
+    link.setAttribute("download", `dooza_social_signups_${new Date().toISOString().split('T')[0]}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -173,8 +173,8 @@ const Admin = () => {
             </Button>
             
             <div>
-              <h1 className="text-3xl font-bold text-green-700">dooza Admin</h1>
-              <p className="text-muted-foreground">Email Signup Analytics</p>
+              <h1 className="text-3xl font-bold text-green-700">dooza social Admin</h1>
+              <p className="text-muted-foreground">Social Media User Signups</p>
             </div>
           </div>
 

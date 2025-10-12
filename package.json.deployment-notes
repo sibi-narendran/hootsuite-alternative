@@ -1,0 +1,65 @@
+# Vercel Deployment Instructions
+
+## Step 1: Deploy to Vercel
+
+1. **Connect GitHub Repository:**
+   - Go to https://vercel.com
+   - Sign in and click "New Project"
+   - Connect your GitHub account
+   - Select the "zendesk-alternative" repository
+
+2. **Configure Deployment:**
+   - Framework: React (Vite)
+   - Root Directory: . (leave default)
+   - Build Command: npm run build
+   - Output Directory: dist
+
+3. **Deploy:**
+   - Click "Deploy"
+   - Vercel will automatically build and deploy your app
+
+## Step 2: Database Setup (JSONBin.io)
+
+1. **Create Free JSONBin Account:**
+   - Go to https://jsonbin.io
+   - Sign up for free account
+   - Create a new bin
+   - Copy the Bin ID and API Key
+
+2. **Update API Functions:**
+   - Replace JSONBIN_URL in `api/emails.js` and `api/stats.js`
+   - Replace JSONBIN_KEY with your actual API key
+
+## Step 3: Test Production
+
+1. **Frontend:** https://your-app-name.vercel.app
+2. **API Health:** https://your-app-name.vercel.app/api/health  
+3. **Admin Page:** https://your-app-name.vercel.app/admin
+
+## Alternative Database Options
+
+### Option 1: Railway PostgreSQL
+- More robust for high traffic
+- Better for production apps
+
+### Option 2: Supabase
+- PostgreSQL with built-in admin UI
+- Real-time features
+
+### Option 3: Firebase Firestore
+- NoSQL database
+- Real-time updates
+
+## Production Features
+
+✅ **Working:**
+- Email collection from any device
+- Real-time admin dashboard  
+- CSV export functionality
+- Cross-device compatibility
+- CORS properly configured
+
+✅ **Scalable:**
+- Serverless functions auto-scale
+- Database handles concurrent requests
+- No server maintenance required

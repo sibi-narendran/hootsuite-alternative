@@ -10,7 +10,7 @@ export const getApiUrl = () => {
     const hostname = window.location.hostname;
     // Check for production domains - use relative URLs for production
     if (hostname.includes('vercel.app') || 
-        hostname.includes('typeform-alternative') || 
+        hostname.includes('hootsuite-alternative') || 
         hostname.includes('trydooza.com') ||
         hostname !== 'localhost' && hostname !== '127.0.0.1') {
       return ''; // Use relative URLs for production (Vercel functions)

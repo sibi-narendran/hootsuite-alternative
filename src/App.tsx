@@ -20,7 +20,7 @@ const App = () => (
       <div className="fixed top-0 left-0 right-0 z-[60] bg-orange-500 text-white py-3 text-center">
         <div className="container mx-auto px-6">
           <p className="text-sm md:text-base font-semibold">
-            🎯 Save 70% vs Typeform
+            🎯 Save 70% vs hootsuite
           </p>
         </div>
       </div>

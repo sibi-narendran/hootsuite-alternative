@@ -6,7 +6,7 @@ const MigrationSection = () => {
   const { ref, isVisible } = useScrollAnimation(0.2);
 
   const platforms = [
-    { name: "Typeform", icon: <FaUsers className="w-5 h-5" />, color: "text-purple-600" },
+    { name: "hootsuite", icon: <FaUsers className="w-5 h-5" />, color: "text-purple-600" },
     { name: "Google Forms", icon: <FaInbox className="w-5 h-5" />, color: "text-red-600" },
     { name: "SurveyMonkey", icon: <FaTicketAlt className="w-5 h-5" />, color: "text-blue-600" },
     { name: "Jotform", icon: <FaUsers className="w-5 h-5" />, color: "text-green-600" },

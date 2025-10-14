@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-import { apiCall } from "@/config/api";
+import { addSocialSignup, getClientInfo } from "@/lib/supabase-social";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -18,43 +18,49 @@ const Signup = () => {
     setIsLoading(true);
     
     try {
-      // Submit email to backend API
-      const response = await apiCall('emails', {
-        method: 'POST',
-        body: JSON.stringify({ email })
-      });
-
-      const result = await response.json();
+      // Get client info for tracking
+      const clientInfo = await getClientInfo();
       
-      if (result.success) {
-        console.log('Email submitted successfully:', email);
+      // Submit email directly to new Supabase database
+      const signupData = {
+        email,
+        timestamp: new Date().toISOString(),
+        ip_address: clientInfo.ip_address,
+        user_agent: clientInfo.user_agent,
+        signup_source: 'dooza_social_website',
+        status: 'pending' as const
+      };
+
+      const result = await addSocialSignup(signupData);
+      
+      if (result) {
+        console.log('Social signup saved successfully:', email);
         
         // Track conversion event in Google Analytics
         if (typeof gtag !== 'undefined') {
           gtag('event', 'form_submit', {
             event_category: 'engagement',
-            event_label: 'email_signup',
+            event_label: 'social_media_signup',
             value: 1
           });
 
-          // Track Google Ads conversion
+          // Track Google Ads conversion for social media tool
           gtag('event', 'conversion', {
             'send_to': 'AW-10872232955/oI5hCKLM7KgbEPu3pMAo',
             'value': 1.0,
             'currency': 'USD',
-            'event_category': 'Lead',
-            'event_label': 'Submit lead form'
+            'event_category': 'Social Media Lead',
+            'event_label': 'Submit social media signup form'
           });
         }
         
         setIsSubmitted(true);
       } else {
-        console.error('Failed to submit email:', result.error);
-        alert('Failed to submit email. Please try again.');
+        throw new Error('Failed to save signup');
       }
     } catch (error) {
-      console.error('Network error:', error);
-      alert('Network error. Please check your connection and try again.');
+      console.error('Database error:', error);
+      alert('Failed to submit signup. Please try again.');
     } finally {
       setIsLoading(false);
     }

@@ -1,5 +1,5 @@
-// Email collection API for Vercel with Supabase PostgreSQL - Updated for doozasocial
-import { addSocialSignup, getSocialSignups, clearAllSocialSignups } from '../lib/supabase-social.js';
+// Social signups API endpoint for doozasocial
+import { addSocialSignup, getSocialSignups, getSocialSignupStats, clearAllSocialSignups } from '../lib/supabase-social.js';
 
 export default async function handler(req, res) {
   // Enable CORS
@@ -13,8 +13,8 @@ export default async function handler(req, res) {
 
   try {
     if (req.method === 'POST') {
-      // Submit new email
-      const { email } = req.body;
+      // Submit new social signup
+      const { email, utm_source, utm_medium, utm_campaign, referrer } = req.body;
       
       // Validate email
       if (!email || !email.includes('@')) {
@@ -26,64 +26,61 @@ export default async function handler(req, res) {
 
       const signupData = {
         email: email.toLowerCase().trim(),
-        signup_source: 'doozasocial_api_endpoint',
+        signup_source: 'doozasocial_api',
         user_agent: req.headers['user-agent'] || 'unknown',
         ip_address: req.headers['x-forwarded-for'] || req.headers['x-real-ip'] || 'unknown',
-        utm_source: null,
-        utm_medium: null,
-        utm_campaign: null,
-        referrer: req.headers['referer'] || null,
+        utm_source: utm_source || null,
+        utm_medium: utm_medium || null,
+        utm_campaign: utm_campaign || null,
+        referrer: referrer || req.headers['referer'] || null,
         timestamp: new Date().toISOString()
       };
 
-      // Save email to Supabase social_signups table
-      const savedEmail = await addSocialSignup(signupData);
+      // Save to Supabase social_signups table
+      const savedSignup = await addSocialSignup(signupData);
       
-      console.log(`New social signup saved to Supabase: ${signupData.email} at ${signupData.timestamp}`);
+      console.log(`New doozasocial signup saved: ${signupData.email} at ${signupData.timestamp}`);
       
       return res.status(201).json({ 
         success: true, 
-        message: 'Email saved to database successfully',
-        id: savedEmail.id,
-        email: savedEmail.email,
-        timestamp: savedEmail.timestamp
+        message: 'Social signup saved successfully',
+        id: savedSignup.id,
+        email: savedSignup.email,
+        timestamp: savedSignup.timestamp
       });
     }
 
     if (req.method === 'GET') {
-      // Get all social signups from Supabase PostgreSQL
+      // Get all social signups
       const signups = await getSocialSignups();
       
       return res.json({ 
         success: true, 
-        emails: signups, // Keep 'emails' key for backward compatibility
         signups: signups,
         total: signups.length,
         message: signups.length > 0 
-          ? `${signups.length} social signups retrieved from database`
-          : 'No social signups yet. Database is ready to collect signups!'
+          ? `${signups.length} doozasocial signups retrieved`
+          : 'No doozasocial signups yet. Ready to collect signups!'
       });
     }
 
     if (req.method === 'DELETE') {
-      // Clear all social signups from Supabase PostgreSQL
+      // Clear all social signups
       const deletedCount = await clearAllSocialSignups();
       
       return res.json({ 
         success: true, 
-        message: `Successfully deleted ${deletedCount} social signup records from database`,
+        message: `Successfully deleted ${deletedCount} doozasocial signup records`,
         deletedCount
       });
     }
 
     return res.status(405).json({ error: 'Method not allowed' });
-    
   } catch (error) {
     console.error('API Error:', error);
     return res.status(500).json({ 
       error: 'Internal server error',
-      success: false,
-      details: error.message
+      success: false 
     });
   }
 }

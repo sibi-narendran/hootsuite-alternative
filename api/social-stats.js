@@ -1,5 +1,5 @@
-// Stats API for Vercel deployment with Supabase PostgreSQL - Updated for doozasocial
-import { getSocialSignups, getSocialSignupStats } from '../lib/supabase-social.js';
+// Social signup stats API endpoint for doozasocial
+import { getSocialSignupStats } from '../lib/supabase-social.js';
 
 export default async function handler(req, res) {
   // Enable CORS
@@ -16,18 +16,18 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Get social signup stats from Supabase PostgreSQL
+    // Get doozasocial signup statistics
     const stats = await getSocialSignupStats();
 
     res.json({ 
       success: true, 
       stats,
       message: stats.total > 0 
-        ? `Live stats from ${stats.total} real doozasocial signups!` 
-        : 'Database ready - no doozasocial signups yet.'
+        ? `Live doozasocial stats: ${stats.total} total signups (${stats.today} today, ${stats.week} this week)` 
+        : 'doozasocial database ready - no signups yet.'
     });
   } catch (error) {
-    console.error('Stats API Error:', error);
+    console.error('Social Stats API Error:', error);
     return res.status(500).json({ 
       error: 'Internal server error',
       success: false 

@@ -1,15 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-import { addSocialSignup, getClientInfo } from "@/lib/supabase-social";
+import { addSocialSignup } from "../../lib/supabase-social";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [utmParams, setUtmParams] = useState({});
   const navigate = useNavigate();
+
+  // Extract UTM parameters and referrer on component mount
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const utm = {
+      utm_source: urlParams.get('utm_source'),
+      utm_medium: urlParams.get('utm_medium'),
+      utm_campaign: urlParams.get('utm_campaign'),
+      referrer: document.referrer || null
+    };
+    setUtmParams(utm);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,23 +31,21 @@ const Signup = () => {
     setIsLoading(true);
     
     try {
-      // Get client info for tracking
-      const clientInfo = await getClientInfo();
-      
-      // Submit email directly to new Supabase database
+      // Prepare signup data for Supabase
       const signupData = {
-        email,
-        timestamp: new Date().toISOString(),
-        ip_address: clientInfo.ip_address,
-        user_agent: clientInfo.user_agent,
+        email: email.trim().toLowerCase(),
         signup_source: 'dooza_social_website',
-        status: 'pending' as const
+        user_agent: navigator.userAgent,
+        ip_address: null, // Will be set by server if needed
+        ...utmParams,
+        timestamp: new Date().toISOString()
       };
 
+      // Submit to Supabase social_signups table
       const result = await addSocialSignup(signupData);
       
-      if (result) {
-        console.log('Social signup saved successfully:', email);
+      if (result && result.id) {
+        console.log('Social signup submitted successfully:', email);
         
         // Track conversion event in Google Analytics
         if (typeof gtag !== 'undefined') {
@@ -44,13 +55,13 @@ const Signup = () => {
             value: 1
           });
 
-          // Track Google Ads conversion for social media tool
+          // Track Google Ads conversion
           gtag('event', 'conversion', {
             'send_to': 'AW-10872232955/oI5hCKLM7KgbEPu3pMAo',
             'value': 1.0,
             'currency': 'USD',
-            'event_category': 'Social Media Lead',
-            'event_label': 'Submit social media signup form'
+            'event_category': 'Lead',
+            'event_label': 'Social Media Management Signup'
           });
         }
         
@@ -59,8 +70,14 @@ const Signup = () => {
         throw new Error('Failed to save signup');
       }
     } catch (error) {
-      console.error('Database error:', error);
-      alert('Failed to submit signup. Please try again.');
+      console.error('Signup error:', error);
+      
+      // Show user-friendly error message
+      const errorMessage = error.message?.includes('duplicate') 
+        ? 'This email is already registered. Please use a different email or try logging in.'
+        : 'Failed to submit signup. Please check your connection and try again.';
+      
+      alert(errorMessage);
     } finally {
       setIsLoading(false);
     }

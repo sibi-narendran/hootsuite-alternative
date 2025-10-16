@@ -165,6 +165,15 @@ const Signup = () => {
             <Button 
               type="submit" 
               className="w-full h-14 text-lg font-semibold bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
+              onClick={() => {
+                if (typeof gtag !== 'undefined') {
+                  gtag('event', 'click', {
+                    event_category: 'engagement',
+                    event_label: 'signup_submit_button',
+                    value: 1
+                  });
+                }
+              }}
               disabled={isLoading || !email}
             >
               {isLoading ? (
